@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://csadynxbynr3p"]
 
+[ext_resource type="Script" uid="uid://fyevu8720kh8" path="res://Sceens/player_3d.gd" id="1_5tshv"]
 [ext_resource type="Script" uid="uid://bm2bmsg8v23nr" path="res://Script/CameraController.gd" id="1_pkkr4"]
-
-[sub_resource type="GDScript" id="GDScript_f284w"]
+[ext_resource type="Resource" uid="uid://cji0ms0hrvhw5" path="res://Movement state/stand.tres" id="2_vjghw"]
+[ext_resource type="Resource" uid="uid://gueiv0b58gu3" path="res://Movement state/walk.tres" id="3_d36tj"]
+[ext_resource type="Resource" uid="uid://dn4g3w7t638d5" path="res://Movement state/sprint.tres" id="4_ec703"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pkkr4"]
 
@@ -12,7 +14,12 @@
 radius = 0.7
 
 [node name="Player 3D" type="CharacterBody3D" unique_id=867415578]
-script = SubResource("GDScript_f284w")
+script = ExtResource("1_5tshv")
+movement_states = {
+"sprint": ExtResource("4_ec703"),
+"stand ": ExtResource("2_vjghw"),
+"walk": ExtResource("3_d36tj")
+}
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1525201300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MovementState" format=3 uid="uid://cji0ms0hrvhw5"]
+
+[ext_resource type="Script" uid="uid://bomi88r2ckf03" path="res://Script/movement_state.gd" id="1_nbdoo"]
+
+[resource]
+script = ExtResource("1_nbdoo")
+metadata/_custom_type_script = "uid://bomi88r2ckf03"
