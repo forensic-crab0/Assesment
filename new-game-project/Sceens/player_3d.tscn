@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://csadynxbynr3p"]
+
+[ext_resource type="Script" uid="uid://bm2bmsg8v23nr" path="res://Script/CameraController.gd" id="1_pkkr4"]
+
+[sub_resource type="GDScript" id="GDScript_f284w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pkkr4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f284w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pkkr4"]
+radius = 0.7
+
+[node name="Player 3D" type="CharacterBody3D" unique_id=867415578]
+script = SubResource("GDScript_f284w")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1525201300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" unique_id=1476821367]
+mesh = SubResource("CapsuleMesh_pkkr4")
+
+[node name="Visuals2" type="Node3D" parent="." unique_id=458984865]
+transform = Transform3D(0.4, 0, 0, 0, 0.06945929, 0.3939231, 0, -0.3939231, 0.06945929, -0.33704367, 1.0416056, -0.5456916)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals2" unique_id=721441760]
+mesh = SubResource("CapsuleMesh_pkkr4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1917120338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)
+shape = SubResource("CapsuleShape3D_f284w")
+
+[node name="CamRoot" type="Node3D" parent="." unique_id=2059113336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1707356, 0)
+script = ExtResource("1_pkkr4")
+
+[node name="CamYaw" type="Node3D" parent="CamRoot" unique_id=1037614683]
+
+[node name="CamPitch" type="Node3D" parent="CamRoot/CamYaw" unique_id=1748532233]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamRoot/CamYaw/CamPitch" unique_id=1237786270]
+shape = SubResource("SphereShape3D_pkkr4")
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="CamRoot/CamYaw/CamPitch/SpringArm3D" unique_id=1872724304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4823904, 2.2372565)

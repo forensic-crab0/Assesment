@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://daslfhwek5ncr"]
+
+[ext_resource type="Texture2D" uid="uid://c7a1asp5repah" path="res://Sprites/PNG/Dark/texture_06.png" id="1_nr0sw"]
+[ext_resource type="Texture2D" uid="uid://dv2v8sktu24l0" path="res://Sprites/PNG/Purple/texture_08.png" id="2_dr448"]
+[ext_resource type="Texture2D" uid="uid://cxf1asacldugx" path="res://Sprites/PNG/Orange/texture_08.png" id="3_q7hni"]
+[ext_resource type="Texture2D" uid="uid://bxkvrvdotwjej" path="res://Sprites/PNG/Green/texture_08.png" id="4_a1r60"]
+[ext_resource type="PackedScene" uid="uid://csadynxbynr3p" path="res://Sceens/player_3d.tscn" id="5_q7hni"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtxrt"]
+albedo_texture = ExtResource("1_nr0sw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twx83"]
+albedo_texture = ExtResource("2_dr448")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyte1"]
+albedo_texture = ExtResource("3_q7hni")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dla1"]
+albedo_texture = ExtResource("4_a1r60")
+
+[node name="Game World" type="Node3D" unique_id=158128379]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1024360926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4768677, -0.26171875, -9.173981)
+material_override = SubResource("StandardMaterial3D_mtxrt")
+use_collision = true
+size = Vector3(41.02234, 0.4765625, 30.994568)
+
+[node name="Refference box" type="Node3D" parent="." unique_id=1141772120]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Refference box" unique_id=1544438357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2106028, 1.2261919, -17.781353)
+material_override = SubResource("StandardMaterial3D_twx83")
+use_collision = true
+size = Vector3(2.2197266, 2.4736328, 2.6542969)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Refference box" unique_id=1901473069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27226007, 1.7762766, -15.850039)
+material_override = SubResource("StandardMaterial3D_oyte1")
+use_collision = true
+size = Vector3(3.4707031, 3.614746, 2.9482422)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Refference box" unique_id=2031324053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.727499, 1.3213413, -13.849887)
+material_override = SubResource("StandardMaterial3D_2dla1")
+use_collision = true
+size = Vector3(3.1108398, 2.7631836, 3.0966797)
+
+[node name="Player 3D" parent="." unique_id=867415578 instance=ExtResource("5_q7hni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42271233, 0.07256347, -12.5444355)
