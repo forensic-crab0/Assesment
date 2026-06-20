@@ -18,6 +18,10 @@ albedo_texture = ExtResource("3_q7hni")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dla1"]
 albedo_texture = ExtResource("4_a1r60")
 
+[sub_resource type="Environment" id="Environment_q7hni"]
+background_energy_multiplier = 1.67
+ambient_light_color = Color(0.24322338, 0.37659526, 0.36874983, 1)
+
 [node name="Game World" type="Node3D" unique_id=158128379]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1024360926]
@@ -48,3 +52,6 @@ size = Vector3(3.1108398, 2.7631836, 3.0966797)
 
 [node name="Player 3D" parent="." unique_id=867415578 instance=ExtResource("5_q7hni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42271233, 0.07256347, -12.5444355)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=705049592]
+environment = SubResource("Environment_q7hni")
