@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dr24w8lts2x6y" path="res://Script/new_gd_script.gd" id="1_7cxlc"]
 [ext_resource type="Script" uid="uid://bm2bmsg8v23nr" path="res://Script/CameraController.gd" id="1_pkkr4"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pkkr4"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pkkr4"]
+[ext_resource type="PackedScene" uid="uid://dwxhpbox1b73r" path="res://Sceens/pistol.tscn" id="2_inpgs"]
+[ext_resource type="PackedScene" uid="uid://cbq7ba15m3kbe" path="res://Assets/cybernetic_mutant_psx_style/scene.gltf" id="2_xhmec"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f284w"]
 
@@ -13,24 +11,24 @@
 radius = 0.7
 
 [node name="Player 3D" type="CharacterBody3D" unique_id=867415578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1930716, 0)
 script = ExtResource("1_7cxlc")
 
-[node name="Visuals" type="Node3D" parent="." unique_id=1525201300]
+[node name="Player Model" type="Node3D" parent="." unique_id=1525201300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" unique_id=1476821367]
-mesh = SubResource("CapsuleMesh_pkkr4")
+[node name="Pistol" parent="Player Model" unique_id=1349307913 instance=ExtResource("2_inpgs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.4832468, 0.5473194, 1.0671743)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visuals" unique_id=172774958]
-transform = Transform3D(0.35739368, 0, 0, 0, -0.11361633, 0.37135926, 0, -0.6169841, -0.068385035, 0.29379487, 0.26631898, 0.22621107)
-mesh = SubResource("CylinderMesh_pkkr4")
+[node name="Sketchfab_Scene" parent="Player Model" unique_id=236018861 instance=ExtResource("2_xhmec")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.98953474, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1917120338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)
 shape = SubResource("CapsuleShape3D_f284w")
 
 [node name="CamRoot" type="Node3D" parent="." unique_id=2059113336]
-transform = Transform3D(0.9824844, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1707356, 0)
+transform = Transform3D(0.9824844, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0073373, 0)
 script = ExtResource("1_pkkr4")
 
 [node name="CamYaw" type="Node3D" parent="CamRoot" unique_id=1037614683]

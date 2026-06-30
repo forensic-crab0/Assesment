@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ctp0o18g7yp8p"]
+
+[sub_resource type="GDScript" id="GDScript_am8x1"]
+script/source = "extends RigidBody3D
+
+const SPEED = 30.0
+const LIFETIME = 3.0
+
+func _ready() -> void:
+	var camera := get_viewport().get_camera_3d()
+	if camera:
+		var cam_forward: Vector3 = -camera.global_transform.basis.z
+		cam_forward.y = 0.0
+		cam_forward = cam_forward.normalized()
+		linear_velocity = cam_forward * SPEED
+	await get_tree().create_timer(LIFETIME).timeout
+	queue_free()
+
+func _on_body_entered(body: Node) -> void:
+	print(\"Hit: \", body.name)
+	queue_free()
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am8x1"]
+shading_mode = 0
+albedo_color = Color(0.7831664, 0.65485233, 0.3458462, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rtl8c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v7oki"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=794866420]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+script = SubResource("GDScript_am8x1")
+
+[node name="Holy Mesh" type="MeshInstance3D" parent="." unique_id=300278919]
+transform = Transform3D(0.08256726, 0, 0, 0, 0.012007243, 0, 0, 0, 0.019881364, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_am8x1")
+mesh = SubResource("SphereMesh_rtl8c")
+
+[node name="Divine Hitbox" type="CollisionShape3D" parent="." unique_id=686607613]
+transform = Transform3D(0.016666664, 0, 0, 0, 0.016666664, 0, 0, 0, 0.016666664, 0, 0, 0)
+shape = SubResource("SphereShape3D_v7oki")
