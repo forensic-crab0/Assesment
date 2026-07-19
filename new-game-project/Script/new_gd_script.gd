@@ -3,29 +3,24 @@ extends CharacterBody3D
 @export var walk_speed: float = 3.0
 @export var run_speed: float = 15.0
 const NORMAL_LENGTH = 4.0
-const AIM_LENGTH = -0.4
+const AIM_LENGTH = -0.47
 const ZOOM_SPEED = 8.0
 @onready var cam_yaw := $CamRoot/CamYaw
 @onready var visual := $"Player Model"
 @onready var spring_arm := $CamRoot/CamYaw/CamPitch/SpringArm3D
-
 var kick_lock_timer: float = 0.0
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
 	if Input.is_action_just_pressed("kick"):
-		kick_lock_timer = 1.67
-
+		kick_lock_timer = 1.65
 	if kick_lock_timer > 0.0:
 		kick_lock_timer -= delta
 		velocity.x = move_toward(velocity.x, 0, walk_speed)
 		velocity.z = move_toward(velocity.z, 0, walk_speed)
 		move_and_slide()
 		return
-
-	var is_aiming := Input.is_action_pressed("aim")
+	var is_aiming := Input.is_action_pressed("aim") and kick_lock_timer <= 0.0
 	var target_length := AIM_LENGTH if is_aiming else NORMAL_LENGTH
 	spring_arm.spring_length = lerp(spring_arm.spring_length, target_length, ZOOM_SPEED * delta) as float
 	if is_aiming:
@@ -41,10 +36,10 @@ func _physics_process(delta: float) -> void:
 				handle_run(delta)
 			else:
 				handle_walk(delta)
+			handle_turn(delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, walk_speed)
 			velocity.z = move_toward(velocity.z, 0, walk_speed)
-		handle_turn(delta)
 	move_and_slide()
 func handle_turn(delta: float) -> void:
 	var turn_direction = Input.get_axis("left", "right")

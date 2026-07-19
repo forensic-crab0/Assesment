@@ -2,43 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://iwsgi00fhdfo" path="res://Assets/PSXMiscGuns/1911/1911.fbx" id="1_3om0v"]
 
-[sub_resource type="GDScript" id="GDScript_3om0v"]
-script/source = "extends Node3D
-
-@onready var ray := $\"1911/RayCast3D\"
-
-func _ready() -> void:
-	visible = false
-
-func _physics_process(_delta: float) -> void:
-	visible = Input.is_action_pressed(\"aim\")
-	if Input.is_action_just_pressed(\"shoot\") and Input.is_action_pressed(\"aim\"):
-		shoot()
-
-func shoot() -> void:
-	if ray.is_colliding():
-		var hit: Node = ray.get_collider()
-		print(\"Hit: \", hit.name, \" parent: \", hit.get_parent().name)
-		if hit.is_in_group(\"zombie\"):
-			hit.take_damage(2)
-		elif hit.get_parent().is_in_group(\"zombie\"):
-			hit.get_parent().take_damage(2)
-"
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_3om0v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3om0v"]
 
 [node name="Pistol" type="Node3D" unique_id=1349307913]
-script = SubResource("GDScript_3om0v")
 
 [node name="1911" parent="." unique_id=610491435 instance=ExtResource("1_3om0v")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.753, 0, 0)
 
-[node name="RayCast3D" type="RayCast3D" parent="1911" unique_id=1715759700]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2715945, 1.681108, 0)
+[node name="RayCast3D" type="RayCast3D" parent="1911" unique_id=1103896817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2211068, 1.695721, 0)
+target_position = Vector3(100, 0, 0)
 
-[node name="Marker3D" type="Marker3D" parent="1911" unique_id=1494837389]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.2757545, 1.6775777, 0)
+[node name="BulletTrail" type="MeshInstance3D" parent="1911" unique_id=361626898]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.765, 0, 0)
+material_override = SubResource("StandardMaterial3D_3om0v")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1982298530]
-transform = Transform3D(-4.3711403e-09, -2.8740232, 0, 0.10000004, -1.2562755e-07, 0, 0, 0, 0.1, 2.319, 0.332, 0)
-mesh = SubResource("CylinderMesh_3om0v")
+[node name="Laser Trail" type="MeshInstance3D" parent="1911" unique_id=1011882459]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.765, 0, 0)
+material_override = SubResource("StandardMaterial3D_3om0v")
+
+[node name="Laser" type="Node3D" parent="." unique_id=141593615]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.5087787, 0.3076477, 0)
+
+[node name="Barrel" type="Node3D" parent="." unique_id=2015769536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4936606, 0.33651203, 0)
+
+[node name="AimRayEnd" type="Node3D" parent="." unique_id=571227702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 0.34, 0)
