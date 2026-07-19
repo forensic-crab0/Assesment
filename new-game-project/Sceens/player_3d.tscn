@@ -3,9 +3,38 @@
 [ext_resource type="Script" uid="uid://dr24w8lts2x6y" path="res://Script/new_gd_script.gd" id="1_7cxlc"]
 [ext_resource type="Script" uid="uid://bm2bmsg8v23nr" path="res://Script/CameraController.gd" id="1_pkkr4"]
 [ext_resource type="PackedScene" uid="uid://dwxhpbox1b73r" path="res://Sceens/pistol.tscn" id="2_inpgs"]
-[ext_resource type="PackedScene" uid="uid://cbq7ba15m3kbe" path="res://Assets/cybernetic_mutant_psx_style/scene.gltf" id="2_xhmec"]
+[ext_resource type="PackedScene" uid="uid://cg3tvidh6564g" path="res://Assets/Player/aim.tscn" id="4_5tshv"]
+[ext_resource type="Script" uid="uid://vm8wkhpeeg1j" path="res://Script/Idel.gd" id="4_nlscb"]
+[ext_resource type="PackedScene" uid="uid://csp77k1iac4sa" path="res://Assets/Player/Idel.tscn" id="5_5tshv"]
+[ext_resource type="Script" uid="uid://cnwu0eva4d5jl" path="res://Script/Aim.gd" id="5_lh718"]
+[ext_resource type="PackedScene" uid="uid://b8sedge1dqm1m" path="res://Assets/Player/Walking.tscn" id="5_vjghw"]
+[ext_resource type="PackedScene" uid="uid://0rewachq0sqw" path="res://Assets/Player/sprint.tscn" id="6_ec703"]
+[ext_resource type="PackedScene" uid="uid://bggq850valj88" path="res://Assets/Player/walking_backwards.tscn" id="7_1wf58"]
+[ext_resource type="Script" uid="uid://drh8a0xf8d8ct" path="res://Script/Sprint.gd" id="7_j44pm"]
+[ext_resource type="Script" uid="uid://b3x70enpriyup" path="res://Script/Walking.gd" id="7_nlscb"]
+[ext_resource type="Script" uid="uid://dwmcgvot3q1t2" path="res://Script/WalkingBack.gd" id="8_1wf58"]
+[ext_resource type="PackedScene" uid="uid://cnlyu12fpour8" path="res://Assets/Player/mma_kick.tscn" id="13_28ofb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f284w"]
+radius = 0.45898438
+height = 2.3726196
+
+[sub_resource type="GDScript" id="GDScript_7q1uu"]
+script/source = "extends Node3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	visible = false
+	animation_player.animation_finished.connect(_on_animation_finished)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"kick\") and not visible:
+		visible = true
+		animation_player.play(\"mixamo_com\")
+
+func _on_animation_finished(anim_name: String) -> void:
+	visible = false
+"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pkkr4"]
 radius = 0.7
@@ -14,18 +43,39 @@ radius = 0.7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1930716, 0)
 script = ExtResource("1_7cxlc")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1917120338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9821279, 0)
+shape = SubResource("CapsuleShape3D_f284w")
+
 [node name="Player Model" type="Node3D" parent="." unique_id=1525201300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)
 
 [node name="Pistol" parent="Player Model" unique_id=1349307913 instance=ExtResource("2_inpgs")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.4832468, 0.5473194, 1.0671743)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.09711498, 0.5473194, 1.6236029)
 
-[node name="Sketchfab_Scene" parent="Player Model" unique_id=236018861 instance=ExtResource("2_xhmec")]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.98953474, 0)
+[node name="Idel" parent="Player Model" unique_id=1417590594 instance=ExtResource("5_5tshv")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -1.126, 0)
+script = ExtResource("4_nlscb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1917120338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904, 0)
-shape = SubResource("CapsuleShape3D_f284w")
+[node name="Aim" parent="Player Model" unique_id=104724508 instance=ExtResource("4_5tshv")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -1.126, 0)
+script = ExtResource("5_lh718")
+
+[node name="Walking" parent="Player Model" unique_id=1701802958 instance=ExtResource("5_vjghw")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -1.071, 0)
+script = ExtResource("7_nlscb")
+
+[node name="Sprint" parent="Player Model" unique_id=710272789 instance=ExtResource("6_ec703")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -1.071, 0)
+script = ExtResource("7_j44pm")
+
+[node name="Walking Backwards" parent="Player Model" unique_id=1420812287 instance=ExtResource("7_1wf58")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -1.071, 0)
+script = ExtResource("8_1wf58")
+
+[node name="Mma Kick" parent="Player Model" unique_id=725498342 instance=ExtResource("13_28ofb")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -1.071, 0)
+script = SubResource("GDScript_7q1uu")
 
 [node name="CamRoot" type="Node3D" parent="." unique_id=2059113336]
 transform = Transform3D(0.9824844, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0073373, 0)

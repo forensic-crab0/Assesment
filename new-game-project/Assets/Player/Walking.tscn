@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8sedge1dqm1m"]
+
+[ext_resource type="PackedScene" uid="uid://4pab8b6e8yvt" path="res://Assets/Player/Dont Deleat These/Standard Walk.glb" id="1_1d05u"]
+
+[node name="empty_1" unique_id=1701802958 instance=ExtResource("1_1d05u")]
+
+[node name="rig" parent="FBX_Root" parent_id_path=PackedInt32Array(1774045529) index="0" unique_id=679719171]
+transform = Transform3D(0.99827635, -0.05465966, -0.02136732, 0.018151319, -0.058671366, 0.99811226, -0.055810094, -0.99677974, -0.057578094, 0.022887584, 0.0070841312, 0.09132477)
+
+[node name="Skeleton3D" parent="FBX_Root/rig" index="0" unique_id=1886440143]
+bones/1/rotation = Quaternion(-0.08061147, 0.0015515777, -0.0004991265, 0.99674433)
+bones/2/rotation = Quaternion(-0.032796726, 0.002785161, 0.0045804847, 0.99944776)
+bones/3/rotation = Quaternion(0.270511, -0.003472597, 0.0013125503, 0.9627098)
+bones/5/rotation = Quaternion(-0.5350273, -0.39138997, -0.5337234, 0.5250705)
+bones/6/rotation = Quaternion(-0.29035392, 0.6356022, -0.46988735, 0.5393611)
+bones/7/rotation = Quaternion(0.07182463, 0.09183802, 0.0010522093, 0.9931798)
+bones/8/rotation = Quaternion(0.051550195, -0.039960884, 0.038211286, 0.9971388)
+bones/9/rotation = Quaternion(0.10715206, 0.9425554, 0.2576398, -0.18365581)
+bones/12/rotation = Quaternion(-0.5469674, 0.37819505, 0.51308554, 0.542714)
+bones/13/rotation = Quaternion(-0.28451353, -0.61076283, 0.47088903, 0.5694597)
+bones/14/rotation = Quaternion(0.13375089, -0.084715955, -0.001959526, 0.9873855)
+bones/15/rotation = Quaternion(0.05183527, 0.130494, -0.034756865, 0.98948294)
+bones/16/rotation = Quaternion(-0.12961656, 0.93910754, 0.29241872, 0.1255709)
+bones/19/rotation = Quaternion(0.9555287, -0.0067352587, -0.040174317, 0.29207152)
+bones/20/rotation = Quaternion(0.45869434, -0.014953592, 0.00046471955, 0.88846827)
+bones/22/rotation = Quaternion(0.9917096, 0.011839608, 0.08767021, 0.09319788)
+bones/23/rotation = Quaternion(0.049881753, 0.013005547, -0.034216385, 0.9980842)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1686497245]
+autoplay = &"mixamo_com"

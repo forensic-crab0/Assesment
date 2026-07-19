@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cnlyu12fpour8"]
+
+[ext_resource type="PackedScene" uid="uid://clb74fhb4jh05" path="res://Assets/Player/Dont Deleat These/Mma Kick.fbx" id="1_wuhd7"]
+
+[node name="Mma Kick" unique_id=725498342 instance=ExtResource("1_wuhd7")]
+
+[node name="rig" parent="." index="0" unique_id=1436025256]
+transform = Transform3D(0.8169117, -0.5759637, 0.030348737, 0.053527057, 0.12810129, 0.9903155, -0.5742736, -0.80737585, 0.13547708, -0.008487409, -0.079780936, -0.10124744)
+
+[node name="Skeleton3D" parent="rig" index="0" unique_id=259793319]
+bones/1/rotation = Quaternion(-0.076233655, -0.02345884, -0.016546458, 0.9966767)
+bones/2/rotation = Quaternion(-0.02391397, -0.041277315, -0.03758854, 0.9981541)
+bones/3/rotation = Quaternion(0.26232198, -0.030380685, 0.012261951, 0.96442413)
+bones/5/rotation = Quaternion(-0.40643096, -0.5130029, -0.51229703, 0.55605185)
+bones/6/rotation = Quaternion(-0.039591946, 0.34747723, -0.6891974, 0.6345857)
+bones/7/rotation = Quaternion(0.8273511, 0.05593703, 0.012120331, 0.5587614)
+bones/8/rotation = Quaternion(0.09399175, -0.11286426, 0.00079778966, 0.9891546)
+bones/9/rotation = Quaternion(0.18469793, 0.88449097, 0.41192007, -0.11783134)
+bones/12/rotation = Quaternion(-0.41143298, 0.4638572, 0.5375235, 0.5715137)
+bones/13/rotation = Quaternion(-0.16329576, -0.28072312, 0.45568085, 0.8287847)
+bones/14/rotation = Quaternion(0.79886025, -0.05990615, -0.011703067, 0.5984118)
+bones/15/rotation = Quaternion(-0.008615427, -0.015812943, -0.03597518, 0.9991905)
+bones/16/rotation = Quaternion(-0.18310733, 0.8766173, 0.43019372, 0.11378639)
+bones/19/rotation = Quaternion(0.95519865, 0.12082824, -0.1526982, 0.22288878)
+bones/20/rotation = Quaternion(0.33657068, -0.043956522, -0.024997484, 0.9402995)
+bones/22/rotation = Quaternion(0.8698448, -0.13812688, 0.14337844, 0.45136878)
+bones/23/rotation = Quaternion(0.33778685, -0.041946467, -0.047781125, 0.9390727)

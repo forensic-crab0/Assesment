@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://daslfhwek5ncr"]
 
-[ext_resource type="Texture2D" uid="uid://c7a1asp5repah" path="res://Sprites/PNG/Dark/texture_06.png" id="1_nr0sw"]
-[ext_resource type="Texture2D" uid="uid://dv2v8sktu24l0" path="res://Sprites/PNG/Purple/texture_08.png" id="2_dr448"]
-[ext_resource type="Texture2D" uid="uid://cxf1asacldugx" path="res://Sprites/PNG/Orange/texture_08.png" id="3_q7hni"]
-[ext_resource type="Texture2D" uid="uid://bxkvrvdotwjej" path="res://Sprites/PNG/Green/texture_08.png" id="4_a1r60"]
+[ext_resource type="Shader" uid="uid://bmite8g7iyr47" path="res://Script/PS1_Shader.gdshader" id="3_dr448"]
+[ext_resource type="PackedScene" uid="uid://bc4k8fqx8g8nv" path="res://Sceens/zombie.tscn" id="3_rklxv"]
 [ext_resource type="PackedScene" uid="uid://csadynxbynr3p" path="res://Sceens/player_3d.tscn" id="5_q7hni"]
 
 [sub_resource type="Environment" id="Environment_q7hni"]
@@ -21,22 +19,17 @@ volumetric_fog_density = 0.0
 adjustment_enabled = true
 adjustment_brightness = 0.79
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twx83"]
-albedo_texture = ExtResource("2_dr448")
+[sub_resource type="NavigationMesh" id="NavigationMesh_mtxrt"]
+vertices = PackedVector3Array(-115.699936, 1.2617188, -63.27646, -115.699936, 1.2617188, 109.72354, 138.30006, 1.2617188, 109.72354, 138.30006, 1.2617188, -63.27646)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyte1"]
-albedo_texture = ExtResource("3_q7hni")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dla1"]
-albedo_texture = ExtResource("4_a1r60")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtxrt"]
-albedo_texture = ExtResource("1_nr0sw")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7hni"]
+shader = ExtResource("3_dr448")
 
 [node name="Game World" type="Node3D" unique_id=158128379]
 
 [node name="Player 3D" parent="." unique_id=867415578 instance=ExtResource("5_q7hni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42271233, 0.07256347, -12.5444355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42271233, 1.3810871, -12.5444355)
 
 [node name="Lighting & Fog" type="Node3D" parent="." unique_id=477643321]
 
@@ -50,26 +43,49 @@ shadow_enabled = true
 
 [node name="Map" type="Node3D" parent="." unique_id=1141772120]
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Map" unique_id=1544438357]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2106028, 1.2261919, -17.781353)
-material_override = SubResource("StandardMaterial3D_twx83")
-use_collision = true
-size = Vector3(2.2197266, 2.4736328, 2.6542969)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Map" unique_id=1614475194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.214508, -0.26171875, -20.988068)
+navigation_mesh = SubResource("NavigationMesh_mtxrt")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Map" unique_id=1901473069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27226007, 1.7762766, -15.850039)
-material_override = SubResource("StandardMaterial3D_oyte1")
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/NavigationRegion3D" unique_id=1620336845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.298683, 0.26171875, 23.24582)
 use_collision = true
-size = Vector3(3.4707031, 3.614746, 2.9482422)
+size = Vector3(254.99724, 1, 174.04456)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Map" unique_id=2031324053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.727499, 1.3213413, -13.849887)
-material_override = SubResource("StandardMaterial3D_2dla1")
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/NavigationRegion3D" unique_id=377193099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.298683, 1.8598022, -63.435806)
 use_collision = true
-size = Vector3(3.1108398, 2.7631836, 3.0966797)
+size = Vector3(254.99724, 4.196167, 0.68130493)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Map" unique_id=1024360926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4768677, -0.26171875, -9.173981)
-material_override = SubResource("StandardMaterial3D_mtxrt")
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/NavigationRegion3D" unique_id=1559985420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.298683, 1.8598022, 109.88176)
 use_collision = true
-size = Vector3(41.02234, 0.4765625, 30.994568)
+size = Vector3(254.99724, 4.196167, 0.68130493)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367808102]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=983170169]
+material = SubResource("ShaderMaterial_q7hni")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Zombie" parent="." unique_id=295521039 instance=ExtResource("3_rklxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.165598, 1.7612906, -4.3823256)
+
+[node name="Zombie2" parent="." unique_id=243565806 instance=ExtResource("3_rklxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.551294, 0.5, 46.75642)
+
+[node name="Zombie3" parent="." unique_id=1414303487 instance=ExtResource("3_rklxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.289795, 0.5, 19.035877)
+
+[node name="Zombie4" parent="." unique_id=1466015139 instance=ExtResource("3_rklxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.40354, 0.5000038, 10.363794)
+
+[node name="Zombie5" parent="." unique_id=499417253 instance=ExtResource("3_rklxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.34037, 0.5000038, -31.541298)
+
+[node name="Zombie6" parent="." unique_id=1706565753 instance=ExtResource("3_rklxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.66932, 0.5, -51.62092)

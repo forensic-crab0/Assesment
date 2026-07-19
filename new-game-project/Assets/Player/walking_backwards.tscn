@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bggq850valj88"]
+
+[ext_resource type="PackedScene" uid="uid://c4tjgcjrxo3m2" path="res://Assets/Player/Dont Deleat These/Walking Backwards.fbx" id="1_5jkps"]
+
+[node name="Walking Backwards" unique_id=1420812287 instance=ExtResource("1_5jkps")]
+
+[node name="rig" parent="." index="0" unique_id=1687486316]
+transform = Transform3D(0.99944544, -0.029289281, -0.01584043, 0.01201356, -0.12650113, 0.99189365, -0.031055681, -0.99153394, -0.1260791, 0.016614465, -0.0123612285, 0.15681061)
+
+[node name="Skeleton3D" parent="rig" index="0" unique_id=172919315]
+bones/1/rotation = Quaternion(-0.015356226, 0.023416167, -0.0062687164, 0.9995882)
+bones/2/rotation = Quaternion(0.09765504, 0.047676668, -0.0017948592, 0.99407613)
+bones/3/rotation = Quaternion(0.27086145, -0.007377573, 0.004227431, 0.9625808)
+bones/5/rotation = Quaternion(-0.499322, -0.43861526, -0.5195435, 0.53699976)
+bones/6/rotation = Quaternion(-0.30082405, 0.7134499, -0.43154943, 0.46288145)
+bones/7/rotation = Quaternion(0.33715695, 0.05844627, 0.0049390052, 0.9396196)
+bones/8/rotation = Quaternion(0.069108374, -0.07732745, 0.05550395, 0.9930578)
+bones/9/rotation = Quaternion(0.22878392, 0.92520595, 0.24253686, -0.18118443)
+bones/12/rotation = Quaternion(-0.5315207, 0.40641046, 0.55061823, 0.49913523)
+bones/13/rotation = Quaternion(-0.26224515, -0.5657075, 0.44507942, 0.64273393)
+bones/14/rotation = Quaternion(0.33372194, -0.058928773, -0.004888679, 0.9408152)
+bones/15/rotation = Quaternion(0.04318417, 0.04948922, -0.049700003, 0.99660224)
+bones/16/rotation = Quaternion(-0.25143293, 0.8958717, 0.17056479, 0.32419625)
+bones/19/rotation = Quaternion(0.97740877, 0.046758387, -0.028100371, 0.20419635)
+bones/20/rotation = Quaternion(0.40956855, -0.016913459, 0.009779959, 0.91207016)
+bones/22/rotation = Quaternion(0.98575526, -0.01646895, 0.04641462, 0.16081421)
+bones/23/rotation = Quaternion(0.2629772, 0.0032572623, 0.00744446, 0.9647679)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=2035041289]
+autoplay = &"mixamo_com"

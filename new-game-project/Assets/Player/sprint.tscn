@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://0rewachq0sqw"]
+
+[ext_resource type="PackedScene" uid="uid://uprxshxijl5v" path="res://Assets/Player/Dont Deleat These/Running (1).glb" id="1_ewisc"]
+
+[node name="Sprint" unique_id=710272789 instance=ExtResource("1_ewisc")]
+
+[node name="rig" parent="FBX_Root" parent_id_path=PackedInt32Array(1968922766) index="0" unique_id=2049225084]
+transform = Transform3D(0.98345286, 0.18092762, 0.0092630945, -0.032784574, 0.12745176, 0.9913027, 0.17817347, -0.97520316, 0.13127443, -0.019038795, -0.079436004, -0.09069777)
+
+[node name="Skeleton3D" parent="FBX_Root/rig" index="0" unique_id=25025894]
+bones/1/rotation = Quaternion(-0.061878134, 0.034822337, -0.0041964413, 0.9974673)
+bones/2/rotation = Quaternion(0.004849076, 0.07003092, 0.0018695855, 0.9975313)
+bones/3/rotation = Quaternion(0.27476788, 0.00560874, 0.008028654, 0.96146077)
+bones/5/rotation = Quaternion(-0.55045336, -0.37836704, -0.46159264, 0.5837565)
+bones/6/rotation = Quaternion(-0.36606207, 0.7294889, -0.38375324, 0.4319468)
+bones/7/rotation = Quaternion(0.8062276, 0.058918387, 0.011811033, 0.5885458)
+bones/8/rotation = Quaternion(0.07319793, -0.4275542, 0.013556519, 0.9009195)
+bones/9/rotation = Quaternion(0.1738683, 0.945988, 0.21731433, -0.1662867)
+bones/12/rotation = Quaternion(-0.54565555, 0.39037415, 0.4638737, 0.5785234)
+bones/13/rotation = Quaternion(-0.19331266, -0.6389519, 0.50759625, 0.5447173)
+bones/14/rotation = Quaternion(0.7685305, -0.063722216, -0.011258606, 0.6365325)
+bones/15/rotation = Quaternion(0.087202854, 0.18464908, -0.04588191, 0.97785234)
+bones/16/rotation = Quaternion(-0.169566, 0.94674623, 0.21838073, 0.16501158)
+bones/19/rotation = Quaternion(0.9016359, 0.009134899, -0.12576824, 0.413705)
+bones/20/rotation = Quaternion(0.77030915, -0.030196795, -0.065809876, 0.63354653)
+bones/22/rotation = Quaternion(0.9671494, 0.029448632, -0.032594163, 0.2503847)
+bones/23/rotation = Quaternion(0.38035408, 0.0068419646, -0.034973208, 0.9241541)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1243499451]
+autoplay = &"mixamo_com"
