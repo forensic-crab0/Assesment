@@ -44,7 +44,6 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
-	print("Zombie health: ", health)
 	if health <= 0:
 		die()
 
