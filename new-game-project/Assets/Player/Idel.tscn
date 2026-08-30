@@ -254,7 +254,7 @@ _data = {
 [node name="FBX_Root" type="Node3D" parent="." unique_id=1951498879]
 
 [node name="rig" type="Node3D" parent="FBX_Root" unique_id=13859870]
-transform = Transform3D(0.9941126, 0.09104708, 0.058741424, -0.05291013, -0.06519031, 0.9964691, 0.09455499, -0.99371016, -0.05998921, -0.059179477, 0.004435718, 0.09406417)
+transform = Transform3D(0.9941126, 0.09104707, 0.058741424, -0.05291013, -0.0651903, 0.9964691, 0.09455499, -0.9937101, -0.05998921, -0.059179477, 0.004435718, 0.09406417)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="FBX_Root/rig" unique_id=837255891]
 bones/0/name = "pelvis"

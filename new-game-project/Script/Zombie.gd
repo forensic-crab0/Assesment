@@ -10,6 +10,7 @@ var is_dead := false
 @onready var nav_agent := $NavigationAgent3D
 @onready var player := $"../Player 3D"
 @onready var anim := $"Zombie Rig/Armature/AnimationPlayer"
+@onready var Bullet := $"1911/RayCast3D"
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

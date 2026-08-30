@@ -3,9 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dld5huqqisr3p" path="res://Assets/maxdamage_zombie-low-polygltf/gltf/maxdamage_zombie-low-poly_corpse1.png" id="1_a6u41"]
 [ext_resource type="Script" uid="uid://bxwqse0ygtvk2" path="res://Script/Zombie.gd" id="1_jqhwf"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jqhwf"]
+radius = 0.30698597
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a6u41"]
 radius = 0.4033203
-height = 2.3373413
+height = 2.1522064
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puc37"]
 resource_name = "zombie1"
@@ -1632,8 +1635,12 @@ _data = {
 [node name="Zombie" type="CharacterBody3D" unique_id=295521039]
 script = ExtResource("1_jqhwf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=650450643]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1484133, 0)
+[node name="CollisionShapeHead" type="CollisionShape3D" parent="." unique_id=1796079733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3337145, -0.013741434)
+shape = SubResource("SphereShape3D_jqhwf")
+
+[node name="CollisionShapeBody" type="CollisionShape3D" parent="." unique_id=650450643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0558459, 0)
 shape = SubResource("CapsuleShape3D_a6u41")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1291139008]

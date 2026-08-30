@@ -11,6 +11,7 @@ glow_strength = 2.0
 glow_blend_mode = 0
 glow_map_strength = 1.0
 fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
 fog_sun_scatter = 0.18
 fog_density = 0.0548
 fog_height_density = 7.6417
@@ -39,6 +40,7 @@ environment = SubResource("Environment_q7hni")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting & Fog" unique_id=1789389407]
 transform = Transform3D(0.9116043, 0, -0.41106895, 0.41058758, -0.04837905, 0.9105369, -0.019887123, -0.99882907, -0.04410255, 0, 26.10136, -27.850998)
+light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
 shadow_enabled = true
 
 [node name="Map" type="Node3D" parent="." unique_id=1141772120]
@@ -52,15 +54,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.298683, 0.26171875, 23.245
 use_collision = true
 size = Vector3(254.99724, 1, 174.04456)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Map/NavigationRegion3D" unique_id=377193099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.298683, 1.8598022, -63.435806)
-use_collision = true
-size = Vector3(254.99724, 4.196167, 0.68130493)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Map/NavigationRegion3D" unique_id=1559985420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.298683, 1.8598022, 109.88176)
-use_collision = true
-size = Vector3(254.99724, 4.196167, 0.68130493)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/NavigationRegion3D" unique_id=389433480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.892578, 6.882801, -7.955551)
+size = Vector3(52.210938, 11.996527, 26.91767)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367808102]
 
