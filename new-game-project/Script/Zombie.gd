@@ -9,7 +9,7 @@ var is_dead := false
 
 @onready var nav_agent := $NavigationAgent3D
 @onready var player := $"../Player 3D"
-@onready var anim := $"Zombie Rig/Armature/AnimationPlayer"
+@onready var animation := $"Zombie Rig/Armature/AnimationPlayer"
 @onready var Bullet := $"1911/RayCast3D"
 
 func _physics_process(delta: float) -> void:
@@ -34,9 +34,9 @@ func _physics_process(delta: float) -> void:
 	if direction.length() > 0:
 		var target_angle := atan2(direction.x, direction.z)
 		rotation.y = lerp_angle(rotation.y, target_angle, 0.15)
-		anim.play("Walk")
+		animation.play("Walk")
 	else:
-		anim.play("Idle")
+		animation.play("Idle")
 
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(amount: int) -> void:
+	print("E")
 	health -= amount
 	if health <= 0:
 		die()

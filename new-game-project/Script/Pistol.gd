@@ -17,16 +17,16 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and Input.is_action_pressed("aim"):
 		shoot()
+		
+		
 func shoot() -> void:
 	ray.global_rotation.x = 0
 	var end_point: Vector3
 	if ray.is_colliding():
 		var hit: Node = ray.get_collider()
+		print(hit)
 		end_point = ray.get_collision_point()
-		if hit.is_in_group("zombie"):
-			hit.take_damage(2)
-		elif hit.get_parent().is_in_group("zombie"):
-			hit.get_parent().take_damage(2)
+		hit.take_damage(2)
 	else:
 		end_point = $AimRayEnd.global_position
 	create_bullet_trail($Barrel.global_position, end_point)

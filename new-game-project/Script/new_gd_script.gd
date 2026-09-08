@@ -1,7 +1,7 @@
 extends CharacterBody3D
 @export var turn_speed: float = 180.0
 @export var walk_speed: float = 3.0
-@export var run_speed: float = 15.0
+@export var run_speed: float = 5.5
 const NORMAL_LENGTH = 4.0
 const AIM_LENGTH = -0.47
 const ZOOM_SPEED = 8.0

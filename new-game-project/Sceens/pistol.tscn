@@ -12,6 +12,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.753, 0, 0)
 [node name="RayCast3D" type="RayCast3D" parent="1911" unique_id=1103896817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2211068, 1.695721, 0)
 target_position = Vector3(100, 0, 0)
+collision_mask = 2
 
 [node name="BulletTrail" type="MeshInstance3D" parent="1911" unique_id=361626898]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.765, 0, 0)
