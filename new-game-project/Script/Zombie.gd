@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 1.0
 const GRAVITY = 9.8
-const MAX_HEALTH = 3
+const MAX_HEALTH = 6
 
 var health := MAX_HEALTH
 var is_dead := false
@@ -10,7 +10,7 @@ var is_dead := false
 @onready var nav_agent := $NavigationAgent3D
 @onready var player := $"../Player 3D"
 @onready var animation := $"Zombie Rig/Armature/AnimationPlayer"
-@onready var Bullet := $"1911/RayCast3D"
+@onready var range := $Attack
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -23,6 +23,10 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if player == null:
+		return
+
+	if player in range.get_overlapping_bodies():
+		animation.play("Attack1")
 		return
 
 	nav_agent.target_position = player.global_position
@@ -44,7 +48,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(amount: int) -> void:
-	print("E")
 	health -= amount
 	if health <= 0:
 		die()
