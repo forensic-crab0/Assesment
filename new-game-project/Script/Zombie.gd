@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 1.0
 const GRAVITY = 9.8
-const MAX_HEALTH = 6
+const MAX_HEALTH = 3
 
 var health := MAX_HEALTH
 var is_dead := false
@@ -20,9 +20,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 		move_and_slide()
-		return
-
-	if player == null:
 		return
 
 	if player in range.get_overlapping_bodies():

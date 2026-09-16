@@ -114,6 +114,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Zombie" parent="." unique_id=295521039 instance=ExtResource("3_rklxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.165598, 1.7612906, -4.3823256)
