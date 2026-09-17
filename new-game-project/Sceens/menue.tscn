@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cr2v01bnpn7qr"]
+
+[ext_resource type="Script" uid="uid://bxdystnfxs8rv" path="res://Sceens/menue.gd" id="1_wt5nc"]
+
+[node name="Menue" type="Node2D" unique_id=1051205104]
+script = ExtResource("1_wt5nc")
+
+[node name="Button" type="Button" parent="." unique_id=1865075182]
+offset_left = 6.0
+offset_top = 102.0
+offset_right = 122.0
+offset_bottom = 133.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="." unique_id=471179215]
+offset_left = 8.0
+offset_top = 192.0
+offset_right = 96.0
+offset_bottom = 224.0
+text = "Rules"
+
+[node name="Button3" type="Button" parent="." unique_id=1739035014]
+offset_left = 7.0
+offset_top = 142.0
+offset_right = 110.0
+offset_bottom = 181.0
+text = "options"
+
+[node name="Label" type="Label" parent="." unique_id=1183814588]
+offset_left = 6.0
+offset_top = 41.0
+offset_right = 287.0
+offset_bottom = 125.0
+text = "Evil Zombie Resident Forest"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

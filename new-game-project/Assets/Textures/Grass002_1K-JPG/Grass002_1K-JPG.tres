@@ -20,6 +20,6 @@ ao_texture_channel = 4
 heightmap_enabled = true
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("Displacement")
-uv1_scale = Vector3(20, 20, 20)
+uv1_scale = Vector3(10, 10, 10)
 proximity_fade_enabled = true
 stencil_flags = 2

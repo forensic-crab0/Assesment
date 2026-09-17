@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ckg5r77fqrcg6"]
+
+[ext_resource type="Shader" uid="uid://iws7pd043vro" path="res://Sceens/heart_monitor.gdshader" id="1_85qt5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d50xk"]
+shader = ExtResource("1_85qt5")
+shader_parameter/resolution = Vector2(640, 360)
+shader_parameter/speed = 0.5
+shader_parameter/line_color = Color(0, 1, 0, 1)
+shader_parameter/grid_color = Color(0, 0.2, 0, 1)
+shader_parameter/line_thickness = 0.005
+shader_parameter/line_blur = 0.002
+shader_parameter/dot_blur = 0.05
+
+[node name="Heart Monitor" type="Control" unique_id=1492843473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=183131913]
+material = SubResource("ShaderMaterial_d50xk")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)

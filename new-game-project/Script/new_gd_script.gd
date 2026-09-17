@@ -8,7 +8,7 @@ const ZOOM_SPEED = 8.0
 @onready var cam_yaw := $CamRoot/CamYaw
 @onready var visual := $"Player Model"
 @onready var spring_arm := $CamRoot/CamYaw/CamPitch/SpringArm3D
-const Player_health = 10
+@onready var  Player_health = 10
 var kick_lock_timer: float = 0.0
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

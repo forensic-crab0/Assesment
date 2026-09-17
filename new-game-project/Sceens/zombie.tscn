@@ -1636,6 +1636,7 @@ radius = 0.46760496
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_jqhwf")
+damage_amount = null
 
 [node name="CollisionShapeBody" type="CollisionShape3D" parent="." unique_id=650450643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.260862, -0.12571341)
@@ -2045,3 +2046,8 @@ autoplay = &"Idle"
 physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7562265, 0.06692457)
 shape = SubResource("SphereShape3D_jqhwf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1530289614]
+wait_time = 2.0
+
+[connection signal="animation_finished" from="Zombie Rig/Armature/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

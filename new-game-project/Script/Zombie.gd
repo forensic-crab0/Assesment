@@ -10,7 +10,9 @@ var is_dead := false
 @onready var nav_agent := $NavigationAgent3D
 @onready var player := $"../Player 3D"
 @onready var animation := $"Zombie Rig/Armature/AnimationPlayer"
-@onready var range := $Attack
+@onready var dmgzone := $Attack
+#@export var damage_amount: float = 10.0
+#@onready var damage_timer: Timer = $Timer
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	if player in range.get_overlapping_bodies():
+	if player in dmgzone.get_overlapping_bodies():
 		animation.play("Attack1")
 		return
 
@@ -52,3 +54,8 @@ func take_damage(amount: int) -> void:
 func die() -> void:
 	is_dead = true
 	queue_free()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Attack1":
+		print ("skibidy")
