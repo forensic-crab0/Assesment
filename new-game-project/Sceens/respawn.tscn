@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://djub6tsklqk8f"]
+
+[ext_resource type="Script" uid="uid://mywwxeb32bt" path="res://Sceens/respawn.gd" id="1_eap5p"]
+
+[node name="respawn" type="Node2D" unique_id=1901816996]
+script = ExtResource("1_eap5p")
+
+[node name="Button" type="Button" parent="." unique_id=938615526]
+offset_left = 250.0
+offset_top = 167.0
+offset_right = 520.0
+offset_bottom = 275.0
+text = "repswan"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

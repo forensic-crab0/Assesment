@@ -12,20 +12,6 @@ offset_right = 122.0
 offset_bottom = 133.0
 text = "Play"
 
-[node name="Button2" type="Button" parent="." unique_id=471179215]
-offset_left = 8.0
-offset_top = 192.0
-offset_right = 96.0
-offset_bottom = 224.0
-text = "Rules"
-
-[node name="Button3" type="Button" parent="." unique_id=1739035014]
-offset_left = 7.0
-offset_top = 142.0
-offset_right = 110.0
-offset_bottom = 181.0
-text = "options"
-
 [node name="Label" type="Label" parent="." unique_id=1183814588]
 offset_left = 6.0
 offset_top = 41.0

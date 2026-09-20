@@ -11,8 +11,6 @@ var is_dead := false
 @onready var player := $"../Player 3D"
 @onready var animation := $"Zombie Rig/Armature/AnimationPlayer"
 @onready var dmgzone := $Attack
-#@export var damage_amount: float = 10.0
-#@onready var damage_timer: Timer = $Timer
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -59,3 +57,4 @@ func die() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Attack1":
 		print ("skibidy")
+		player.player_health = player.player_health - 1
