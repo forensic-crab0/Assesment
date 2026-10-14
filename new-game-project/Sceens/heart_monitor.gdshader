@@ -1,3 +1,4 @@
+
 shader_type canvas_item;
 
 uniform vec2 resolution = vec2(640.0, 360.0);
@@ -26,8 +27,9 @@ void fragment() {
     vec2 uv = UV;
     uv.x *= aspect;
 
-    // Base grid layout
-    vec4 final_color = draw_grid(uv);
+    // Black background with green grid
+    vec4 final_color = vec4(0.0, 0.0, 0.0, 1.0);
+    final_color.rgb += draw_grid(uv).rgb;
 
     vec2 points[8];
     points[0] = vec2(0.0 * aspect, 0.5);
@@ -46,22 +48,19 @@ void fragment() {
     }
 
     float progress = mod(TIME * speed, aspect);
-    
+
     float trail = smoothstep(0.3, 0.0, progress - uv.x);
     if (uv.x > progress) {
         trail = 0.0;
     }
 
-    float line_mask = smoothstep(line_thickness + line_blur, line_thickness, min_dist) * trail;
-    
-    float dot_x = progress;
-    float dot_y = 0.5; 
-    if (progress > 0.3 * aspect && progress < 0.55 * aspect) {
-        dot_y = mix(0.5, 0.8, sin(progress * 10.0)); 
-    }
-    float dot_mask = smoothstep(0.02, 0.0, length(uv - vec2(dot_x, dot_y)));
+    float line_mask = smoothstep(
+        line_thickness + line_blur,
+        line_thickness,
+        min_dist
+    ) * trail;
 
-    final_color += line_color * (line_mask + dot_mask);
-    
+    final_color.rgb += line_color.rgb * line_mask;
+
     COLOR = final_color;
 }

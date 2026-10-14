@@ -4,6 +4,10 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3om0v"]
 
+[sub_resource type="PointMesh" id="PointMesh_idjs0"]
+
+[sub_resource type="PointMesh" id="PointMesh_u2l3v"]
+
 [node name="Pistol" type="Node3D" unique_id=1349307913]
 
 [node name="1911" parent="." unique_id=610491435 instance=ExtResource("1_3om0v")]
@@ -15,12 +19,14 @@ target_position = Vector3(100, 0, 0)
 collision_mask = 2
 
 [node name="BulletTrail" type="MeshInstance3D" parent="1911" unique_id=361626898]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.765, 0, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.1926115, 1.7087139, 0)
 material_override = SubResource("StandardMaterial3D_3om0v")
+mesh = SubResource("PointMesh_idjs0")
 
 [node name="Laser Trail" type="MeshInstance3D" parent="1911" unique_id=1011882459]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.765, 0, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.1796474, 1.4654666, 0)
 material_override = SubResource("StandardMaterial3D_3om0v")
+mesh = SubResource("PointMesh_u2l3v")
 
 [node name="Laser" type="Node3D" parent="." unique_id=141593615]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.5087787, 0.3076477, 0)

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b306xqbfs7bqk"]
+
+[ext_resource type="PackedScene" uid="uid://ckg5r77fqrcg6" path="res://Sceens/heart_monitor.tscn" id="1_n186o"]
+[ext_resource type="Script" uid="uid://cpfgy77mau0em" path="res://Sceens/you_won.gd" id="1_pmmt8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pjt8s"]
+font_color = Color(0, 1, 0, 1)
+
+[node name="You Won" type="Node2D" unique_id=737759393]
+script = ExtResource("1_pmmt8")
+
+[node name="Heart Monitor" parent="." unique_id=1492843473 instance=ExtResource("1_n186o")]
+
+[node name="Label" type="Label" parent="." unique_id=1635863761]
+offset_left = 132.0
+offset_right = 489.0
+offset_bottom = 134.0
+text = "thanks for playing you have finished the game
+
+now you can play again by pressing this
+
+
+---------->"
+label_settings = SubResource("LabelSettings_pjt8s")
+
+[node name="Button" type="Button" parent="." unique_id=47652278]
+offset_left = 210.0
+offset_top = 128.0
+offset_right = 283.0
+offset_bottom = 159.0
+text = "Replay"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,16 +1,18 @@
 extends CharacterBody3D
 
-const SPEED = 1.0
+const SPEED = 2.0
 const GRAVITY = 9.8
 const MAX_HEALTH = 3
 
 var health := MAX_HEALTH
 var is_dead := false
+var can_attack := true
 
 @onready var nav_agent := $NavigationAgent3D
 @onready var player := $"../Player 3D"
 @onready var animation := $"Zombie Rig/Armature/AnimationPlayer"
 @onready var dmgzone := $Attack
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -22,8 +24,16 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
+	# Check if player is inside the attack area
 	if player in dmgzone.get_overlapping_bodies():
-		animation.play("Attack1")
+		velocity.x = 0
+		velocity.z = 0
+
+		if can_attack:
+			can_attack = false
+			animation.play("Attack1")
+
+		move_and_slide()
 		return
 
 	nav_agent.target_position = player.global_position
@@ -44,17 +54,21 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func take_damage(amount: int) -> void:
 	health -= amount
+
 	if health <= 0:
 		die()
 
+
 func die() -> void:
 	is_dead = true
+	Score.total += 20
 	queue_free()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Attack1":
-		print ("skibidy")
-		player.player_health = player.player_health - 1
+		player.take_damage(1)
+		can_attack = true

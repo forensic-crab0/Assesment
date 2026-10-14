@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://djub6tsklqk8f"]
 
 [ext_resource type="Script" uid="uid://mywwxeb32bt" path="res://Sceens/respawn.gd" id="1_eap5p"]
+[ext_resource type="PackedScene" uid="uid://ckg5r77fqrcg6" path="res://Sceens/heart_monitor.tscn" id="2_bhb3w"]
 
 [node name="respawn" type="Node2D" unique_id=1901816996]
 script = ExtResource("1_eap5p")
 
+[node name="Heart Monitor" parent="." unique_id=1492843473 instance=ExtResource("2_bhb3w")]
+
 [node name="Button" type="Button" parent="." unique_id=938615526]
-offset_left = 250.0
-offset_top = 167.0
-offset_right = 520.0
-offset_bottom = 275.0
-text = "repswan"
+offset_left = 177.0
+offset_top = 132.0
+offset_right = 447.0
+offset_bottom = 240.0
+text = "respawn"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
